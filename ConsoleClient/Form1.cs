@@ -18,7 +18,7 @@ namespace ConsoleClient
         protected const int MS_BETWEEN_CONSOLE_UPDATES = 100;
         protected const int MS_BETWEEN_PINGS = 1000;
 
-        protected Callbacks _callbacks;
+        protected ConsoleCallbacks _callbacks;
         protected IConsoleInterface _proxy;
         protected StringBuilder _cachedOutput;
         protected Timer _updateOutputTimer;
@@ -26,6 +26,7 @@ namespace ConsoleClient
         protected int _startFormHeight;
         protected int _startInputHeight;
         protected bool _outputPaused;
+        protected string _connectedHostName;
         protected DuplexChannelFactory<IConsoleInterface> _wcfFactory;
         private object _outputUpdateLock = new object();
 
@@ -50,24 +51,11 @@ namespace ConsoleClient
             _connectionPingTimer.Interval = MS_BETWEEN_PINGS;
             _connectionPingTimer.Tick += PingTick;
 
-            _callbacks = new Callbacks();
+            _callbacks = new ConsoleCallbacks();
             _callbacks.OutputReceivedHandlers += NewOutputReceived;
 
-            ConnectToConsoleServer();
-
             txtInput.Enabled = false;
-        }
-
-        protected void ConnectToConsoleServer()
-        {
-            _wcfFactory = new DuplexChannelFactory<IConsoleInterface>(_callbacks, new NetTcpBinding(), new EndpointAddress("net.tcp://localhost:4000"));
-            _proxy = _wcfFactory.CreateChannel();
-
-            // Has to be done in a seperate thread so it doesn't block the callback
-            var task = new Task(() => _proxy.Subscribe());
-            task.ContinueWith((t) => SetAsDisconnected(), TaskContinuationOptions.OnlyOnFaulted);
-            task.ContinueWith((t) => SetAsConnected(), TaskContinuationOptions.NotOnFaulted);
-            task.Start();
+            SetAsDisconnected();
         }
 
         protected void NewOutputReceived(IEnumerable<string> text, string category)
@@ -83,14 +71,23 @@ namespace ConsoleClient
             // Make sure to invoke GUI changes on the correct thread
             this.Invoke((MethodInvoker) delegate() 
             {
-                try { _wcfFactory.Close(); }
-                catch (CommunicationObjectFaultedException) { }
+                if (_wcfFactory != null)
+                {
+                    try { _wcfFactory.Close(); }
+                    catch (CommunicationObjectFaultedException) { }
+                }
 
                 _proxy = null;
                 _wcfFactory = null;
                 _connectionPingTimer.Stop();
                 txtInput.Enabled = false;
                 lblConnectionStatus.Text = "Disconnected";
+                _connectedHostName = null;
+
+                // Set all the menu item statuses
+                connectToolStripMenuItem.Enabled = true;
+                disconnectToolStripMenuItem.Enabled = false;
+                executeToolStripMenuItem.Enabled = false;
             });
         }
 
@@ -99,9 +96,12 @@ namespace ConsoleClient
             // Make sure to invoke this on the correct thread
             this.Invoke((MethodInvoker) delegate()
             {
-                lblConnectionStatus.Text = "Connected";
+                lblConnectionStatus.Text = "Connected to " + _connectedHostName;
                 _connectionPingTimer.Start();
                 txtInput.Enabled = true;
+                connectToolStripMenuItem.Enabled = false;
+                disconnectToolStripMenuItem.Enabled = true;
+                executeToolStripMenuItem.Enabled = true;
             });
         }
 
@@ -223,10 +223,38 @@ namespace ConsoleClient
 
         private void txtCategory_Leave(object sender, EventArgs e)
         {
-            _proxy.ChangeCategory(txtCategory.Text.Trim());
-            NewOutputReceived(
-                new string[] { string.Concat("(Changed to category: ", txtCategory.Text.Trim(), ")") },
-                txtCategory.Text.Trim());
+            if (_wcfFactory != null)
+            {
+                _proxy.ChangeCategory(txtCategory.Text.Trim());
+                NewOutputReceived(
+                    new string[] { string.Concat("(Changed to category: ", txtCategory.Text.Trim(), ")") },
+                    txtCategory.Text.Trim());
+            }
+        }
+
+        private void connectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var connectForm = new fmConnect();
+            connectForm.CallBack = _callbacks;
+            connectForm.ShowDialog();
+
+            // Upon exiting, if a non-null proxy was returned the connection was successful
+            if (connectForm.Proxy == null)
+            {
+                SetAsDisconnected();
+            }
+            else
+            {
+                _proxy = connectForm.Proxy;
+                _wcfFactory = connectForm.WcfChannelFactory;
+                _connectedHostName = connectForm.ConnectedHost;
+                SetAsConnected();
+            }
+        }
+
+        private void disconnectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetAsDisconnected();
         }
     }
 }

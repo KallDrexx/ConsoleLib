@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtHostName = new System.Windows.Forms.TextBox();
+            this.txtPort = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnConnect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtHostName
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(220, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtHostName.Location = new System.Drawing.Point(100, 12);
+            this.txtHostName.Name = "txtHostName";
+            this.txtHostName.Size = new System.Drawing.Size(220, 20);
+            this.txtHostName.TabIndex = 0;
             // 
-            // textBox2
+            // txtPort
             // 
-            this.textBox2.Location = new System.Drawing.Point(100, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(220, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtPort.Location = new System.Drawing.Point(100, 38);
+            this.txtPort.Name = "txtPort";
+            this.txtPort.Size = new System.Drawing.Size(220, 20);
+            this.txtPort.TabIndex = 1;
             // 
             // label1
             // 
@@ -75,6 +75,7 @@
             this.btnConnect.TabIndex = 4;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // fmConnect
             // 
@@ -84,10 +85,11 @@
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPort);
+            this.Controls.Add(this.txtHostName);
             this.Name = "fmConnect";
             this.Text = "Connect To Game";
+            this.Load += new System.EventHandler(this.fmConnect_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,8 +97,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtHostName;
+        private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnConnect;

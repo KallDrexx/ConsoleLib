@@ -46,10 +46,10 @@
             this.unPauseOutputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblPauseStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblPauseStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -173,12 +173,14 @@
             this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
             this.connectToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.connectToolStripMenuItem.Text = "Connect";
+            this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
             // 
             // disconnectToolStripMenuItem
             // 
             this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
             this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.disconnectToolStripMenuItem.Text = "Disconnect";
+            this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -226,6 +228,11 @@
             this.lblConnectionStatus.Size = new System.Drawing.Size(79, 17);
             this.lblConnectionStatus.Text = "Disconnected";
             // 
+            // lblPauseStatus
+            // 
+            this.lblPauseStatus.Name = "lblPauseStatus";
+            this.lblPauseStatus.Size = new System.Drawing.Size(0, 17);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -251,11 +258,6 @@
             this.label2.Size = new System.Drawing.Size(246, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "(Category Change Takes Effect When Focus Lost)";
-            // 
-            // lblPauseStatus
-            // 
-            this.lblPauseStatus.Name = "lblPauseStatus";
-            this.lblPauseStatus.Size = new System.Drawing.Size(0, 17);
             // 
             // label3
             // 

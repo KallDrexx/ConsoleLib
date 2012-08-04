@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace ConsoleClient
 {
-    public class Callbacks : IConsoleNetworkCallbacks
+    public class ConsoleCallbacks : IConsoleNetworkCallbacks
     {
         public delegate void OutputReceivedHandler(IEnumerable<string> text, string category);
 
