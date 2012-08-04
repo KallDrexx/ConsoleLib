@@ -50,6 +50,7 @@
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblPauseStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -63,12 +64,12 @@
             this.txtInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtInput.Location = new System.Drawing.Point(3, 0);
+            this.txtInput.Location = new System.Drawing.Point(3, 3);
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
             this.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInput.Size = new System.Drawing.Size(475, 221);
-            this.txtInput.TabIndex = 0;
+            this.txtInput.Size = new System.Drawing.Size(475, 197);
+            this.txtInput.TabIndex = 2;
             this.txtInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtInput_KeyUp);
             // 
             // txtDisplay
@@ -81,15 +82,15 @@
             this.txtDisplay.Name = "txtDisplay";
             this.txtDisplay.ReadOnly = true;
             this.txtDisplay.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDisplay.Size = new System.Drawing.Size(475, 85);
-            this.txtDisplay.TabIndex = 1;
+            this.txtDisplay.Size = new System.Drawing.Size(475, 77);
+            this.txtDisplay.TabIndex = 3;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(12, 51);
+            this.splitContainer1.Location = new System.Drawing.Point(12, 80);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -100,8 +101,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.txtDisplay);
-            this.splitContainer1.Size = new System.Drawing.Size(481, 319);
-            this.splitContainer1.SplitterDistance = 224;
+            this.splitContainer1.Size = new System.Drawing.Size(481, 290);
+            this.splitContainer1.SplitterDistance = 203;
             this.splitContainer1.TabIndex = 2;
             // 
             // menuStrip1
@@ -239,7 +240,7 @@
             this.txtCategory.Location = new System.Drawing.Point(73, 29);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(150, 20);
-            this.txtCategory.TabIndex = 6;
+            this.txtCategory.TabIndex = 3;
             this.txtCategory.Leave += new System.EventHandler(this.txtCategory_Leave);
             // 
             // label2
@@ -256,11 +257,21 @@
             this.lblPauseStatus.Name = "lblPauseStatus";
             this.lblPauseStatus.Size = new System.Drawing.Size(0, 17);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 64);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "(Press F5 To Execute Script)";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 395);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCategory);
             this.Controls.Add(this.label1);
@@ -311,6 +322,7 @@
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripStatusLabel lblPauseStatus;
+        private System.Windows.Forms.Label label3;
     }
 }
 

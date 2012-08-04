@@ -39,16 +39,23 @@ namespace ConsoleClient
             _startFormHeight = this.Height;
             _startInputHeight = txtInput.Height;
             _cachedOutput = new StringBuilder();
+            unPauseOutputToolStripMenuItem.Enabled = false;
+
             _updateOutputTimer = new Timer();
             _updateOutputTimer.Tick += TimerTick;
             _updateOutputTimer.Interval = MS_BETWEEN_CONSOLE_UPDATES;
             _updateOutputTimer.Start();
-            unPauseOutputToolStripMenuItem.Enabled = false;
+
+            _connectionPingTimer = new Timer();
+            _connectionPingTimer.Interval = MS_BETWEEN_PINGS;
+            _connectionPingTimer.Tick += PingTick;
 
             _callbacks = new Callbacks();
             _callbacks.OutputReceivedHandlers += NewOutputReceived;
 
-            ConnectToConsoleServer();  
+            ConnectToConsoleServer();
+
+            txtInput.Enabled = false;
         }
 
         protected void ConnectToConsoleServer()
@@ -73,18 +80,29 @@ namespace ConsoleClient
 
         protected void SetAsDisconnected()
         {
-            _proxy = null;
+            // Make sure to invoke GUI changes on the correct thread
+            this.Invoke((MethodInvoker) delegate() 
+            {
+                try { _wcfFactory.Close(); }
+                catch (CommunicationObjectFaultedException) { }
 
-            if (_wcfFactory.State == CommunicationState.Opened)
-                _wcfFactory.Close();
-
-            _wcfFactory = null;
-            _connectionPingTimer.Stop();
+                _proxy = null;
+                _wcfFactory = null;
+                _connectionPingTimer.Stop();
+                txtInput.Enabled = false;
+                lblConnectionStatus.Text = "Disconnected";
+            });
         }
 
         protected void SetAsConnected()
         {
-            lblConnectionStatus.Text = "Connected";
+            // Make sure to invoke this on the correct thread
+            this.Invoke((MethodInvoker) delegate()
+            {
+                lblConnectionStatus.Text = "Connected";
+                _connectionPingTimer.Start();
+                txtInput.Enabled = true;
+            });
         }
 
         protected void TimerTick(object sender, EventArgs e)
@@ -102,9 +120,9 @@ namespace ConsoleClient
 
         protected void PingTick(object sender, EventArgs e)
         {
-            new Task(() => _proxy.Ping())
-                .ContinueWith((t) => SetAsDisconnected(), TaskContinuationOptions.OnlyOnFaulted)
-                .Start();
+            var task = new Task(() => _proxy.Ping());
+            task.ContinueWith((t) => SetAsDisconnected(), TaskContinuationOptions.OnlyOnFaulted);
+            task.Start();
         }
 
         private void executeToolStripMenuItem_Click(object sender, EventArgs e)
