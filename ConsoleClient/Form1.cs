@@ -16,14 +16,17 @@ namespace ConsoleClient
     public partial class Form1 : Form
     {
         protected const int MS_BETWEEN_CONSOLE_UPDATES = 100;
+        protected const int MS_BETWEEN_PINGS = 1000;
 
         protected Callbacks _callbacks;
         protected IConsoleInterface _proxy;
         protected StringBuilder _cachedOutput;
         protected Timer _updateOutputTimer;
+        protected Timer _connectionPingTimer;
         protected int _startFormHeight;
         protected int _startInputHeight;
         protected bool _outputPaused;
+        protected DuplexChannelFactory<IConsoleInterface> _wcfFactory;
         private object _outputUpdateLock = new object();
 
         public Form1()
@@ -42,19 +45,22 @@ namespace ConsoleClient
             _updateOutputTimer.Start();
             unPauseOutputToolStripMenuItem.Enabled = false;
 
+            _callbacks = new Callbacks();
+            _callbacks.OutputReceivedHandlers += NewOutputReceived;
+
             ConnectToConsoleServer();  
         }
 
         protected void ConnectToConsoleServer()
         {
-            _callbacks = new Callbacks();
-            _callbacks.OutputReceivedHandlers += NewOutputReceived;
-
-            var factory = new DuplexChannelFactory<IConsoleInterface>(_callbacks, new NetTcpBinding(), new EndpointAddress("net.tcp://localhost:4000"));
-            _proxy = factory.CreateChannel();
+            _wcfFactory = new DuplexChannelFactory<IConsoleInterface>(_callbacks, new NetTcpBinding(), new EndpointAddress("net.tcp://localhost:4000"));
+            _proxy = _wcfFactory.CreateChannel();
 
             // Has to be done in a seperate thread so it doesn't block the callback
-            new Task(() => _proxy.Subscribe()).Start();
+            var task = new Task(() => _proxy.Subscribe());
+            task.ContinueWith((t) => SetAsDisconnected(), TaskContinuationOptions.OnlyOnFaulted);
+            task.ContinueWith((t) => SetAsConnected(), TaskContinuationOptions.NotOnFaulted);
+            task.Start();
         }
 
         protected void NewOutputReceived(IEnumerable<string> text, string category)
@@ -63,6 +69,22 @@ namespace ConsoleClient
             foreach (string line in text)
                 lock(_outputUpdateLock)
                     _cachedOutput.AppendLine(line);
+        }
+
+        protected void SetAsDisconnected()
+        {
+            _proxy = null;
+
+            if (_wcfFactory.State == CommunicationState.Opened)
+                _wcfFactory.Close();
+
+            _wcfFactory = null;
+            _connectionPingTimer.Stop();
+        }
+
+        protected void SetAsConnected()
+        {
+            lblConnectionStatus.Text = "Connected";
         }
 
         protected void TimerTick(object sender, EventArgs e)
@@ -76,6 +98,13 @@ namespace ConsoleClient
                     _cachedOutput.Clear();
                 }
             }
+        }
+
+        protected void PingTick(object sender, EventArgs e)
+        {
+            new Task(() => _proxy.Ping())
+                .ContinueWith((t) => SetAsDisconnected(), TaskContinuationOptions.OnlyOnFaulted)
+                .Start();
         }
 
         private void executeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,6 +125,7 @@ namespace ConsoleClient
             _outputPaused = true;
             pauseOutputToolStripMenuItem.Enabled = false;
             unPauseOutputToolStripMenuItem.Enabled = true;
+            lblPauseStatus.Text = "(Output Paused)";
         }
 
         private void unPauseOutputToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,6 +133,7 @@ namespace ConsoleClient
             _outputPaused = false;
             unPauseOutputToolStripMenuItem.Enabled = false;
             pauseOutputToolStripMenuItem.Enabled = true;
+            lblPauseStatus.Text = "";
         }
 
         private void saveScriptToolStripMenuItem_Click(object sender, EventArgs e)

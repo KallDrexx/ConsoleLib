@@ -13,6 +13,9 @@ namespace ConsoleLib.Console.Networking
         void Subscribe();
 
         [OperationContract]
+        void Ping();
+
+        [OperationContract]
         void ProcessInput(string input);
 
         [OperationContract]

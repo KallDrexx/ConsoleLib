@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblPauseStatus = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -210,7 +211,8 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblConnectionStatus});
+            this.lblConnectionStatus,
+            this.lblPauseStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 373);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(505, 22);
@@ -248,6 +250,11 @@
             this.label2.Size = new System.Drawing.Size(246, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "(Category Change Takes Effect When Focus Lost)";
+            // 
+            // lblPauseStatus
+            // 
+            this.lblPauseStatus.Name = "lblPauseStatus";
+            this.lblPauseStatus.Size = new System.Drawing.Size(0, 17);
             // 
             // Form1
             // 
@@ -303,6 +310,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCategory;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripStatusLabel lblPauseStatus;
     }
 }
 

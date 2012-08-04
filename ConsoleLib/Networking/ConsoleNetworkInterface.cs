@@ -28,6 +28,11 @@ namespace ConsoleLib.Console.Networking
             // Only needed to start receiving output
         }
 
+        public void Ping()
+        {
+            // This is just used to make sure a connection is still active
+        }
+
         public void ProcessInput(string input)
         {
             ConsoleManager.Instance.ProcessInput(input);
