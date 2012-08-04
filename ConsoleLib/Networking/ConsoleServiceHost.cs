@@ -10,10 +10,11 @@ namespace ConsoleLib.Console.Networking
     {
         protected ServiceHost _host;
 
-        public ConsoleServiceHost()
+        public ConsoleServiceHost(string serverName, int port)
         {
-            _host = new ServiceHost(typeof(ConsoleNetworkInterface), new Uri[] { new Uri("net.tcp://localhost:4000") });
-            _host.AddServiceEndpoint(typeof(IConsoleInterface), new NetTcpBinding(), "net.tcp://localhost:4000");
+            var uri = new Uri(string.Format("net.tcp://{0}:{1}", serverName, port));
+            _host = new ServiceHost(typeof(ConsoleNetworkInterface), uri);
+            _host.AddServiceEndpoint(typeof(IConsoleInterface), new NetTcpBinding(), uri);
 
             _host.Open();
         }
