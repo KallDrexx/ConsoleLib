@@ -52,11 +52,11 @@
       <Project>{697B131A-E5FB-49A5-AAD1-602E39DC2130}</Project>
       <Name>ConsoleLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JavascriptConsoleProcessor\JavascriptConsoleProcessor.csproj">
+    <ProjectReference Include="..\ConsoleProcessors\JavascriptConsoleProcessor\JavascriptConsoleProcessor.csproj">
       <Project>{1EFEA3FA-80CE-47F6-8266-CF563877613C}</Project>
       <Name>JavascriptConsoleProcessor</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PythonConsoleProcessor\PythonConsoleProcessor.csproj">
+    <ProjectReference Include="..\ConsoleProcessors\PythonConsoleProcessor\PythonConsoleProcessor.csproj">
       <Project>{2D6A1EA2-244F-482B-81B9-937217FF2064}</Project>
       <Name>PythonConsoleProcessor</Name>
     </ProjectReference>
