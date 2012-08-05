@@ -11,6 +11,7 @@ namespace ConsoleLib.Console
     {
         protected JavascriptContext _jsContext;
         protected List<RegisteredConsoleObject> _registeredConsoleObjects { get; set; }
+        protected object _lockObject = new object();
 
         public JavascriptConsoleProcessor()
         {
@@ -21,7 +22,14 @@ namespace ConsoleLib.Console
         public string ProcessInput(string input)
         {
             object result;
-            try { result = _jsContext.Run(input); }
+            try 
+            { 
+                // V8 engine is unstable if accessed simultaneously 
+                lock (_lockObject)
+                {
+                    result = _jsContext.Run(input);
+                }
+            }
             catch (JavascriptException ex)
             {
                 return ex.Message;
