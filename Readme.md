@@ -4,7 +4,7 @@ ConsoleLib is meant to be an easily plugable debug console for use in XNA games.
 
 It includes both an backed console management system and a networked client to remotely interact with your game's console.
 
-(http://dl.dropbox.com/u/6753359/console5.PNG)
+![example image](http://dl.dropbox.com/u/6753359/console5.PNG)
 
 Quick Start
 ============
