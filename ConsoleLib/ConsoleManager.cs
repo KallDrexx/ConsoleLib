@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Noesis.Javascript;
 
 namespace ConsoleLib.Console
 {
