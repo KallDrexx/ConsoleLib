@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleLib", "ConsoleLib\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleClient", "ConsoleClient\ConsoleClient.csproj", "{413579B8-F9FF-4AFF-BA1D-2FD5A8F9BE32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythonConsoleProcessor", "PythonConsoleProcessor\PythonConsoleProcessor.csproj", "{2D6A1EA2-244F-482B-81B9-937217FF2064}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{413579B8-F9FF-4AFF-BA1D-2FD5A8F9BE32}.Release|Mixed Platforms.Build.0 = Release|x86
 		{413579B8-F9FF-4AFF-BA1D-2FD5A8F9BE32}.Release|x86.ActiveCfg = Release|x86
 		{413579B8-F9FF-4AFF-BA1D-2FD5A8F9BE32}.Release|x86.Build.0 = Release|x86
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2D6A1EA2-244F-482B-81B9-937217FF2064}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
