@@ -6,7 +6,7 @@ using ConsoleLib.Console;
 using Microsoft.Scripting.Hosting;
 using IronPython.Hosting;
 
-namespace PythonConsoleProcessor
+namespace ConsoleLib.Console.Processors
 {
     public class PythonConsoleProcessor : IConsoleProcessor
     {

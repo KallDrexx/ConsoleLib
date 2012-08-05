@@ -5,7 +5,7 @@ using System.Text;
 using Noesis.Javascript;
 using ConsoleLib.Console;
 
-namespace ConsoleLib.Console
+namespace ConsoleLib.Console.Processors
 {
     public class JavascriptConsoleProcessor : IConsoleProcessor
     {
