@@ -37,7 +37,13 @@ The console comes with several commands built in to help with actions.
 
 Console Scripting
 ================
-By default the console accepts commands in Javascript using the [Javascript.Net](http://javascriptdotnet.codeplex.com/).  However, any language can be used simply by creating a custom IConsoleProcessor class for your desired language, wheither that's python, lua, or whatever you are interested in.  Once an IConsoleProcessor derived class has been create it set it up with the Console Manager by calling
+The repository comes with console processors that use:
+
+* [Javascript.Net](http://javascriptdotnet.codeplex.com/) - Uses Google's V8 engine for fast Javascript processing
+* [JInt](http://jint.codeplex.com/) - Provides better .Net integration, allowing instanciating .net objects via javascript
+* [IronPython](http://www.ironpython.net/) - Provides Python support
+
+However, any language can be supported simply by creating a custom IConsoleProcessor class for your desired language.  Once an IConsoleProcessor derived class has been create it set it up with the Console Manager by calling
 
 	Consolemanager.Instance.initializeProcessor(new YourCustomConsoleProcessor());
 	
