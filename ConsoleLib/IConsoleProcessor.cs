@@ -14,7 +14,7 @@ namespace ConsoleLib.Console
         /// <returns></returns>
         /// <exception cref="ConsoleInputException">Thrown when an exception occurs processing input</exception>
         string ProcessInput(string input);
-        void RegisterObject(string name, object obj);
+        void RegisterObject<TObj>(string name, TObj obj);
         void UnregisterObject(string name, object obj);
     }
 }

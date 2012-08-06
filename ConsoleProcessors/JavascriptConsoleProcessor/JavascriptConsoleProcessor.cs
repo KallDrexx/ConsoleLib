@@ -41,7 +41,7 @@ namespace ConsoleLib.Console.Processors
             return string.Empty;
         }
 
-        public void RegisterObject(string name, object obj)
+        public void RegisterObject<TObj>(string name, TObj obj)
         {
             _jsContext.SetParameter(name, obj);
         }

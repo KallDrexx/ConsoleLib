@@ -38,7 +38,7 @@ namespace ConsoleLib.Console.Processors
             }
         }
 
-        public void RegisterObject(string name, object obj)
+        public void RegisterObject<TObj>(string name, TObj obj)
         {
             _scope.SetVariable(name, obj);
         }

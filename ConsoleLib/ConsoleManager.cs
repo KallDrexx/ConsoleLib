@@ -94,7 +94,7 @@ namespace ConsoleLib.Console
         /// <param name="source">Object that is registering the object</param>
         /// <param name="name">Variable name that the object will be accessible in the console with</param>
         /// <param name="obj"></param>
-        public void RegisterObjectToConsole(object source, string name, object obj)
+        public void RegisterObjectToConsole<TObj>(object source, string name, TObj obj)
         {
             if (_consoleProcessor == null)
                 throw new InvalidOperationException("No console processor has been initialized");
