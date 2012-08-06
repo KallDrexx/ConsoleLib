@@ -7,13 +7,13 @@ using ConsoleLib.Console;
 
 namespace ConsoleLib.Console.Processors
 {
-    public class JavascriptConsoleProcessor : IConsoleProcessor
+    public class JavascriptDotNetConsoleProcessor : IConsoleProcessor
     {
         protected JavascriptContext _jsContext;
         protected List<RegisteredConsoleObject> _registeredConsoleObjects { get; set; }
         protected object _lockObject = new object();
 
-        public JavascriptConsoleProcessor()
+        public JavascriptDotNetConsoleProcessor()
         {
             _jsContext = new JavascriptContext();
             _registeredConsoleObjects = new List<RegisteredConsoleObject>();

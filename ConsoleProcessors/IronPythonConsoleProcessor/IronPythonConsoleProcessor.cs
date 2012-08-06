@@ -8,12 +8,12 @@ using IronPython.Hosting;
 
 namespace ConsoleLib.Console.Processors
 {
-    public class PythonConsoleProcessor : IConsoleProcessor
+    public class IronPythonConsoleProcessor : IConsoleProcessor
     {
         protected ScriptEngine _engine;
         protected ScriptScope _scope;
 
-        public PythonConsoleProcessor()
+        public IronPythonConsoleProcessor()
         {
             _engine = Python.CreateEngine();
             _scope = _engine.CreateScope();

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1EFEA3FA-80CE-47F6-8266-CF563877613C}</ProjectGuid>
+    <ProjectGuid>{1D8A8D25-3099-495C-85D8-56273E967C2F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JavascriptConsoleProcessor</RootNamespace>
-    <AssemblyName>JavascriptConsoleProcessor</AssemblyName>
+    <RootNamespace>JIntConsoleProcessor</RootNamespace>
+    <AssemblyName>JIntConsoleProcessor</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Noesis.Javascript">
-      <HintPath>..\lib\Noesis.Javascript.dll</HintPath>
+    <Reference Include="Jint">
+      <HintPath>lib\Jint.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JavascriptConsoleProcessor.cs" />
+    <Compile Include="JintConsoleProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,14 +11,13 @@ namespace TestConsoleHost
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             var test = new TestUtils();
 
             // Initialize the console
             var sourceObj = new object();
-            ConsoleManager.Instance.InitializeProcessor(new JavascriptConsoleProcessor());
+            ConsoleManager.Instance.InitializeProcessor(new JintConsoleProcessor());
             ConsoleManager.Instance.RegisterObjectToConsole(sourceObj, "test", test);
             var host = new ConsoleServiceHost("localhost", 4000);
 

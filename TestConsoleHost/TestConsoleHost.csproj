@@ -52,13 +52,9 @@
       <Project>{697B131A-E5FB-49A5-AAD1-602E39DC2130}</Project>
       <Name>ConsoleLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ConsoleProcessors\JavascriptConsoleProcessor\JavascriptConsoleProcessor.csproj">
-      <Project>{1EFEA3FA-80CE-47F6-8266-CF563877613C}</Project>
-      <Name>JavascriptConsoleProcessor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ConsoleProcessors\PythonConsoleProcessor\PythonConsoleProcessor.csproj">
-      <Project>{2D6A1EA2-244F-482B-81B9-937217FF2064}</Project>
-      <Name>PythonConsoleProcessor</Name>
+    <ProjectReference Include="..\ConsoleProcessors\JIntConsoleProcessor\JIntConsoleProcessor.csproj">
+      <Project>{1D8A8D25-3099-495C-85D8-56273E967C2F}</Project>
+      <Name>JIntConsoleProcessor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
