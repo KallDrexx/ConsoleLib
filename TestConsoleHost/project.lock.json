@@ -1,0 +1,102 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    "DNX,Version=v4.5.1": {
+      "ConsoleLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0"
+      },
+      "ConsoleLib.Processors.JintConsoleProcessor/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "ConsoleLib": "1.0.0",
+          "Jint": "2.8.0"
+        }
+      },
+      "Jint/2.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        }
+      }
+    },
+    "DNX,Version=v4.5.1/win7-x86": {
+      "ConsoleLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0"
+      },
+      "ConsoleLib.Processors.JintConsoleProcessor/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "ConsoleLib": "1.0.0",
+          "Jint": "2.8.0"
+        }
+      },
+      "Jint/2.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        }
+      }
+    },
+    "DNX,Version=v4.5.1/win7-x64": {
+      "ConsoleLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0"
+      },
+      "ConsoleLib.Processors.JintConsoleProcessor/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.5.1",
+        "dependencies": {
+          "ConsoleLib": "1.0.0",
+          "Jint": "2.8.0"
+        }
+      },
+      "Jint/2.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleLib/1.0.0": {
+      "type": "project",
+      "path": "../wrap/ConsoleLib/project.json"
+    },
+    "ConsoleLib.Processors.JintConsoleProcessor/1.0.0": {
+      "type": "project",
+      "path": "../ConsoleProcessors/ConsoleLib.Processors.JintConsoleProcessor/project.json"
+    },
+    "Jint/2.8.0": {
+      "type": "package",
+      "sha512": "QKx6thHm8iWHhyxURaRoFzi/rczDn9iMfQNmWCWiwQi3B//J6Ocu0V/BMzUSLLBCu1XvlnVvrwf2gqVbQUiAbg==",
+      "files": [
+        "Jint.2.8.0.nupkg",
+        "Jint.2.8.0.nupkg.sha512",
+        "Jint.nuspec",
+        "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [],
+    "DNX,Version=v4.5.1": [
+      "ConsoleLib >= 1.0.0-*",
+      "ConsoleLib.Processors.JintConsoleProcessor >= 1.0.0-*"
+    ]
+  }
+}

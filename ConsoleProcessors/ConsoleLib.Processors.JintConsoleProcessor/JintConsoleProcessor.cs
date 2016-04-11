@@ -1,31 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
+using ConsoleLib.Console;
 using Jint;
+using Jint.Runtime;
 
-namespace ConsoleLib.Console.Processors
+namespace ConsoleLib.Processors.JintConsoleProcessor
 {
     public class JintConsoleProcessor : IConsoleProcessor
     {
-        protected JintEngine _engine;
-
-        public JintConsoleProcessor()
-        {
-            _engine = new JintEngine();
-        }
+        private readonly Engine _engine = new Engine();
 
         public string ProcessInput(string input)
         {
             try
             {
-                var result = _engine.Run(input);
+                var result = _engine.Execute(input).GetCompletionValue().ToObject();
                 if (result != null)
                     return result.ToString();
 
                 return string.Empty;
             }
-            catch (JintException ex)
+            catch (JavaScriptException ex)
             {
                 return ex.Message;
             }
@@ -35,14 +32,14 @@ namespace ConsoleLib.Console.Processors
         {
             // If the object is a delegate, add it with SetFunction instead of SetParameter
             if (obj.GetType().IsSubclassOf(typeof(Delegate)))
-                _engine.SetFunction(name, obj as Delegate);
+                _engine.SetValue(name, obj as Delegate);
             else
-                _engine.SetParameter(name, obj);
+                _engine.SetValue(name, obj);
         }
 
         public void UnregisterObject(string name, object obj)
         {
-            _engine.SetParameter(name, null);
+            _engine.SetValue(name, (string)null);
         }
     }
 }

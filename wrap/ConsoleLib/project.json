@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net40": {
+      "wrappedProject": "../../ConsoleLib/ConsoleLib.csproj",
+      "bin": {
+        "assembly": "../../ConsoleLib/obj/{configuration}/ConsoleLib.dll",
+        "pdb": "../../ConsoleLib/obj/{configuration}/ConsoleLib.pdb"
+      }
+    }
+  }
+}

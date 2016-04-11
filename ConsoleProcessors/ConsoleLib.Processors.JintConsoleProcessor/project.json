@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0-*",
+  "description": "ConsoleLib.Processors.JintConsoleProcessor Class Library",
+  "authors": [ "Matthew" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "net451": {
+      "dependencies": {
+        "ConsoleLib": "1.0.0-*"
+      }
+    }
+  },
+  "dependencies": {
+    "Jint": "2.8.0"
+  }
+}
