@@ -22,19 +22,15 @@ namespace ConsoleLib.Processors.JintConsoleProcessor
 
                 return string.Empty;
             }
-            catch (JavaScriptException ex)
+            catch (Exception ex)
             {
-                return ex.Message;
+                return $"Exception: {ex.GetType().Name} - {ex.Message}";
             }
         }
 
         public void RegisterObject<TObj>(string name, TObj obj)
         {
-            // If the object is a delegate, add it with SetFunction instead of SetParameter
-            if (obj.GetType().IsSubclassOf(typeof(Delegate)))
-                _engine.SetValue(name, obj as Delegate);
-            else
-                _engine.SetValue(name, obj);
+            _engine.SetValue(name, obj);
         }
 
         public void UnregisterObject(string name, object obj)

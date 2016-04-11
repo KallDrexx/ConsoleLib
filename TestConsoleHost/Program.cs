@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,6 +20,12 @@ namespace TestConsoleHost
             var sourceObj = new object();
             ConsoleManager.Instance.InitializeProcessor(new JintConsoleProcessor());
             ConsoleManager.Instance.RegisterObjectToConsole(sourceObj, "test", test);
+            ConsoleLib.Helpers.Formatters.RegisterJsonObjectFormatter(sourceObj);
+
+            dynamic expandoTest = new ExpandoObject();;
+            expandoTest.abc = "def";
+            ConsoleManager.Instance.RegisterObjectToConsole(sourceObj, "expandoTest", expandoTest);
+
             var host = new ConsoleServiceHost("localhost", 4000);
 
             Console.WriteLine("Server started, waiting for commands");

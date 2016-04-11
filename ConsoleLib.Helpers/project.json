@@ -1,0 +1,18 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "Helper utilities for use with the ConsoleLib project",
+  "authors": [ "Matthew Shapiro" ],
+  "tags": [ "" ],
+  "projectUrl": "https://github.com/KallDrexx/ConsoleLib",
+  "licenseUrl": "https://github.com/KallDrexx/ConsoleLib/blob/master/LICENSE",
+  "frameworks": {
+    "net400": {
+      "dependencies": {
+        "ConsoleLib": "1.0.1-*"
+      }
+    }
+  },
+  "dependencies": {
+    "Newtonsoft.Json": "8.0.3"
+  }
+}

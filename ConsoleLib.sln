@@ -24,6 +24,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ConsoleLib.Processors.JintC
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TestConsoleHost", "TestConsoleHost\TestConsoleHost.xproj", "{4710C263-0979-4237-9A42-DD2A43A1E7BC}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ConsoleLib.Helpers", "ConsoleLib.Helpers\ConsoleLib.Helpers.xproj", "{D2C2665B-A291-4263-8E8F-491A7155D78D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -98,6 +100,18 @@ Global
 		{4710C263-0979-4237-9A42-DD2A43A1E7BC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{4710C263-0979-4237-9A42-DD2A43A1E7BC}.Release|x86.ActiveCfg = Release|Any CPU
 		{4710C263-0979-4237-9A42-DD2A43A1E7BC}.Release|x86.Build.0 = Release|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Debug|x86.Build.0 = Debug|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Release|x86.ActiveCfg = Release|Any CPU
+		{D2C2665B-A291-4263-8E8F-491A7155D78D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,6 +11,7 @@
   },
 
   "dependencies": {
+    "ConsoleLib.Helpers": "1.0.0-*"
   },
 
   "commands": {
@@ -21,7 +22,7 @@
     "dnx451": {
       "dependencies": {
         "ConsoleLib": "1.0.0-*",
-        "ConsoleLib.Processors.JintConsoleProcessor": "1.0.0-*"
+        "ConsoleLib.Processors.JintConsoleProcessor": "1.0.1-*"
       }
     }
   }
