@@ -1,12 +1,12 @@
 {
-  "version": "1.0.0-*",
-  "description": "ConsoleLib.Processors.JintConsoleProcessor Class Library",
-  "authors": [ "Matthew" ],
+  "version": "1.0.1-*",
+  "description": "Jint processor for ConsoleLib",
+  "authors": [ "Matthew Shapiro" ],
   "tags": [ "" ],
-  "projectUrl": "",
+  "projectUrl": "https://github.com/KallDrexx/ConsoleLib",
   "licenseUrl": "",
   "frameworks": {
-    "net451": {
+    "net400": {
       "dependencies": {
         "ConsoleLib": "1.0.0-*"
       }

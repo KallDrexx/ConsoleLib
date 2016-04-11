@@ -9,7 +9,7 @@
       },
       "ConsoleLib.Processors.JintConsoleProcessor/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.0.0",
         "dependencies": {
           "ConsoleLib": "1.0.0",
           "Jint": "2.8.0"
@@ -32,7 +32,7 @@
       },
       "ConsoleLib.Processors.JintConsoleProcessor/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.0.0",
         "dependencies": {
           "ConsoleLib": "1.0.0",
           "Jint": "2.8.0"
@@ -55,7 +55,7 @@
       },
       "ConsoleLib.Processors.JintConsoleProcessor/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.0.0",
         "dependencies": {
           "ConsoleLib": "1.0.0",
           "Jint": "2.8.0"
