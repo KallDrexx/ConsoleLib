@@ -8,9 +8,6 @@ namespace ConsoleLib.Console
 {
     public class ConsoleUtils
     {
-        public delegate string GetConsoleObjectsDelegate();
-        public delegate string GetObjectDetailsDelegate(string name);
-
         /// <summary>
         /// Lists all available c# objects known to the console
         /// </summary>
