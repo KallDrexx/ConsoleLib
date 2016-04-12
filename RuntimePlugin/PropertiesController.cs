@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FlatRedBall.Glue.Plugins.ExportedImplementations;
+using RuntimePlugin.RuntimeReferences;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,9 @@ namespace RuntimePlugin
 {
     public class PropertiesController
     {
+        List<InstanceReference> Instances = new List<InstanceReference>();
+
+
         WpfDataUi.DataUiGrid grid;
         public WpfDataUi.DataUiGrid Grid
         {
@@ -20,32 +25,74 @@ namespace RuntimePlugin
         {
         }
 
+        private void RefreshInstances()
+        {
+            Instances.Clear();
+
+            Instances.AddRange(GetInstances());
+
+        }
+
+        private IEnumerable<InstanceReference> GetInstances()
+        {
+            yield break;
+        }
+
         private void UpdateGridCategories()
         {
             var category = new MemberCategory("Test Category");
 
-            var instanceMember = new InstanceMember("Some value", this);
-            instanceMember.CustomSetEvent += (owner, value) =>
+            var instanceName = GlueState.Self.CurrentNamedObjectSave?.InstanceName;
+
+            var foundInstance = Instances.FirstOrDefault(item => item.Name == instanceName);
+
+            if (foundInstance != null)
             {
-                System.Console.WriteLine($"Setting the value of {owner} to {value}");
-            };
+                List<PropertyReference> objectProperties = new List<PropertyReference>(); //GetObjectProperties(host, "CurrentScreen", availableEntities[0]);
 
-            instanceMember.CustomGetEvent += (owner) =>
-            {
-                System.Console.WriteLine($"Returning the value for {owner}");
-                return 10;
-            };
+                foreach (var property in objectProperties)
+                {
+                    var member = new ConnectedInstanceMember();
+                    member.InstanceReference = foundInstance;
+                    member.PropertyReference = property;
 
-            instanceMember.CustomGetTypeEvent += (owner) =>
-            {
-                System.Console.WriteLine($"Returning the type for {owner}");
+                    // todo: get the type
+                    member.Type = typeof(object);
+                    member.Connection = null;
 
-                return typeof(int);
-            };
+                    category.Members.Add(member);
+                }
 
-            category.Members.Add(instanceMember);
+                grid.Categories.Add(category);
+            }
 
-            Grid.Categories.Add(category);
+            //var instanceMember = new InstanceMember("Some value", this);
+            //instanceMember.CustomSetEvent += (owner, value) =>
+            //{
+            //    System.Console.WriteLine($"Setting the value of {owner} to {value}");
+            //};
+
+            //instanceMember.CustomGetEvent += (owner) =>
+            //{
+            //    System.Console.WriteLine($"Returning the value for {owner}");
+            //    return 10;
+            //};
+
+            //instanceMember.CustomGetTypeEvent += (owner) =>
+            //{
+            //    System.Console.WriteLine($"Returning the type for {owner}");
+
+            //    return typeof(int);
+            //};
+
+            //category.Members.Add(instanceMember);
+
+            //Grid.Categories.Add(category);
+        }
+
+        private List<PropertyReference> GetObjectProperties(object host, string v, object p)
+        {
+            throw new NotImplementedException();
         }
     }
 }
