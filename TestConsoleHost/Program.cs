@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
-using System.Text;
-using ConsoleLib.Console;
-using ConsoleLib.Console.Processors;
-using ConsoleLib.Console.Networking;
 using System.Threading;
+using System.Threading.Tasks;
+using ConsoleLib.Console;
+using ConsoleLib.Console.Networking;
+using ConsoleLib.Processors.JintConsoleProcessor;
 
 namespace TestConsoleHost
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -19,6 +20,12 @@ namespace TestConsoleHost
             var sourceObj = new object();
             ConsoleManager.Instance.InitializeProcessor(new JintConsoleProcessor());
             ConsoleManager.Instance.RegisterObjectToConsole(sourceObj, "test", test);
+            ConsoleLib.Helpers.Formatters.RegisterJsonObjectFormatter(sourceObj);
+
+            dynamic expandoTest = new ExpandoObject();;
+            expandoTest.abc = "def";
+            ConsoleManager.Instance.RegisterObjectToConsole(sourceObj, "expandoTest", expandoTest);
+
             var host = new ConsoleServiceHost("localhost", 4000);
 
             Console.WriteLine("Server started, waiting for commands");
@@ -30,6 +37,16 @@ namespace TestConsoleHost
             }
 
             ConsoleManager.Instance.UnregisterObjectsFromSource(sourceObj);
+        }
+
+        public class TestUtils
+        {
+            public bool Quit { get; set; }
+
+            public void Print(string message)
+            {
+                ConsoleManager.Instance.AddOutput(message);
+            }
         }
     }
 }

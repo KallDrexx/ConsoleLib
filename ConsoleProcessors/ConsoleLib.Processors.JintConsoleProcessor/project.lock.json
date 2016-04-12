@@ -1,0 +1,75 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.0.0": {
+      "ConsoleLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0"
+      },
+      "Jint/2.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0.0/win7-x86": {
+      "ConsoleLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0"
+      },
+      "Jint/2.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0.0/win7-x64": {
+      "ConsoleLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0"
+      },
+      "Jint/2.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleLib/1.0.0": {
+      "type": "project",
+      "path": "../../wrap/ConsoleLib/project.json"
+    },
+    "Jint/2.8.0": {
+      "type": "package",
+      "sha512": "QKx6thHm8iWHhyxURaRoFzi/rczDn9iMfQNmWCWiwQi3B//J6Ocu0V/BMzUSLLBCu1XvlnVvrwf2gqVbQUiAbg==",
+      "files": [
+        "Jint.2.8.0.nupkg",
+        "Jint.2.8.0.nupkg.sha512",
+        "Jint.nuspec",
+        "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Jint >= 2.8.0"
+    ],
+    ".NETFramework,Version=v4.0.0": [
+      "ConsoleLib >= 1.0.0-*"
+    ]
+  }
+}

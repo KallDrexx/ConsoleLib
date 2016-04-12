@@ -1,0 +1,18 @@
+{
+  "version": "1.0.1-*",
+  "description": "Jint processor for ConsoleLib",
+  "authors": [ "Matthew Shapiro" ],
+  "tags": [ "" ],
+  "projectUrl": "https://github.com/KallDrexx/ConsoleLib",
+  "licenseUrl": "",
+  "frameworks": {
+    "net400": {
+      "dependencies": {
+        "ConsoleLib": "1.0.0-*"
+      }
+    }
+  },
+  "dependencies": {
+    "Jint": "2.8.0"
+  }
+}

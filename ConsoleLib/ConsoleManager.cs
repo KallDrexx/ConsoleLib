@@ -200,11 +200,10 @@ namespace ConsoleLib.Console
         {
             _outputDisplayUpdateHandlers = new List<KeyValuePair<string, OutputDisplayUpdatedDelegate>>();
 
-            //RegisterObjectToConsole(this, "console", new ConsoleUtils());
-            RegisterObjectToConsole(this, "objects", (ConsoleUtils.GetConsoleObjectsDelegate)new ConsoleUtils().ListObjects);
-            RegisterObjectToConsole(this, "details", (ConsoleUtils.GetObjectDetailsDelegate)new ConsoleUtils().ListObjectDetails);
-            RegisterObjectToConsole(this, "properties", (ConsoleUtils.GetObjectDetailsDelegate)new ConsoleUtils().ListObjectProperties);
-            RegisterObjectToConsole(this, "methods", (ConsoleUtils.GetObjectDetailsDelegate)new ConsoleUtils().ListObjectMethods);
+            RegisterObjectToConsole(this, "objects", (Func<string>)new ConsoleUtils().ListObjects);
+            RegisterObjectToConsole(this, "details", (Func<string, string>)new ConsoleUtils().ListObjectDetails);
+            RegisterObjectToConsole(this, "properties", (Func<string, string>)new ConsoleUtils().ListObjectProperties);
+            RegisterObjectToConsole(this, "methods", (Func<string, string>)new ConsoleUtils().ListObjectMethods);
         }
 
         /// <summary>

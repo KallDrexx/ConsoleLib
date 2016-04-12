@@ -1,0 +1,181 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    "DNX,Version=v4.5.1": {
+      "ConsoleLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0"
+      },
+      "ConsoleLib.Helpers/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0.0",
+        "dependencies": {
+          "ConsoleLib": "1.0.1",
+          "Newtonsoft.Json": "8.0.3"
+        }
+      },
+      "ConsoleLib.Processors.JintConsoleProcessor/1.0.1": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0.0",
+        "dependencies": {
+          "ConsoleLib": "1.0.0",
+          "Jint": "2.8.0"
+        }
+      },
+      "Jint/2.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      }
+    },
+    "DNX,Version=v4.5.1/win7-x86": {
+      "ConsoleLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0"
+      },
+      "ConsoleLib.Helpers/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0.0",
+        "dependencies": {
+          "ConsoleLib": "1.0.1",
+          "Newtonsoft.Json": "8.0.3"
+        }
+      },
+      "ConsoleLib.Processors.JintConsoleProcessor/1.0.1": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0.0",
+        "dependencies": {
+          "ConsoleLib": "1.0.0",
+          "Jint": "2.8.0"
+        }
+      },
+      "Jint/2.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      }
+    },
+    "DNX,Version=v4.5.1/win7-x64": {
+      "ConsoleLib/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0"
+      },
+      "ConsoleLib.Helpers/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0.0",
+        "dependencies": {
+          "ConsoleLib": "1.0.1",
+          "Newtonsoft.Json": "8.0.3"
+        }
+      },
+      "ConsoleLib.Processors.JintConsoleProcessor/1.0.1": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.0.0",
+        "dependencies": {
+          "ConsoleLib": "1.0.0",
+          "Jint": "2.8.0"
+        }
+      },
+      "Jint/2.8.0": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll": {}
+        }
+      },
+      "Newtonsoft.Json/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleLib/1.0.0": {
+      "type": "project",
+      "path": "../wrap/ConsoleLib/project.json"
+    },
+    "ConsoleLib.Helpers/1.0.0": {
+      "type": "project",
+      "path": "../ConsoleLib.Helpers/project.json"
+    },
+    "ConsoleLib.Processors.JintConsoleProcessor/1.0.1": {
+      "type": "project",
+      "path": "../ConsoleProcessors/ConsoleLib.Processors.JintConsoleProcessor/project.json"
+    },
+    "Jint/2.8.0": {
+      "type": "package",
+      "sha512": "QKx6thHm8iWHhyxURaRoFzi/rczDn9iMfQNmWCWiwQi3B//J6Ocu0V/BMzUSLLBCu1XvlnVvrwf2gqVbQUiAbg==",
+      "files": [
+        "Jint.2.8.0.nupkg",
+        "Jint.2.8.0.nupkg.sha512",
+        "Jint.nuspec",
+        "lib/portable-net40+sl50+win+WindowsPhoneApp81+wp80/Jint.dll"
+      ]
+    },
+    "Newtonsoft.Json/8.0.3": {
+      "type": "package",
+      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
+      "files": [
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "Newtonsoft.Json.8.0.3.nupkg",
+        "Newtonsoft.Json.8.0.3.nupkg.sha512",
+        "Newtonsoft.Json.nuspec",
+        "tools/install.ps1"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "ConsoleLib.Helpers >= 1.0.0-*"
+    ],
+    "DNX,Version=v4.5.1": [
+      "ConsoleLib >= 1.0.0-*",
+      "ConsoleLib.Processors.JintConsoleProcessor >= 1.0.1-*"
+    ]
+  }
+}

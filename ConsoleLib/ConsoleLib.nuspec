@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.0.1</version>
+    <title>$title$</title>
+    <authors>Matthew Shapiro</authors>
+    <licenseUrl>https://github.com/KallDrexx/ConsoleLib/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/KallDrexx/ConsoleLib</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Extensible framework for adding a debugging console to any .net application, accessible internally or remotely</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2016</copyright>
+  </metadata>
+</package>
