@@ -4,7 +4,7 @@ ConsoleLib is meant to be an easily plugable debug console, primarily meant for 
 
 It includes both an backed console management system and a networked client to remotely interact with your game's console.
 
-![example image](http://dl.dropbox.com/u/6753359/console5.PNG)
+![example image](https://dl.dropboxusercontent.com/u/6753359/Github%20Screenshots/ConsoleLib/console5.PNG)
 
 Quick Start
 ============
